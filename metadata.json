@@ -1,0 +1,6 @@
+{
+  "name": "Fernandes & Lins Assessoria Jurídica",
+  "description": "Defesa estratégica e soluções jurídicas sob medida em Direito Civil, Família, Consumidor, Trabalhista, Previdenciário e Assessoria Preventiva. Atendimento online em todo o Brasil e presencial.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
