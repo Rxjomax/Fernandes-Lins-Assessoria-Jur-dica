@@ -21,7 +21,7 @@ export function AboutSection() {
                 {!failedImages[FIRM_INFO.partnersMainPhoto] ? (
                   <img
                     src={FIRM_INFO.partnersMainPhoto}
-                    alt="Dra. Fabíola e Dr. Fernandes, advogados sócios da Fernandes & Lins Assessoria Jurídica, em atuação no tribunal"
+                    alt="Dra. Fabíola Lins e Dr. Marciel Fernandes, advogados sócios da Fernandes & Lins Assessoria Jurídica, em atuação no tribunal"
                     referrerPolicy="no-referrer"
                     onError={() => markFailed(FIRM_INFO.partnersMainPhoto)}
                     className="h-full w-full object-cover object-top"
@@ -34,7 +34,7 @@ export function AboutSection() {
                 )}
               </div>
               <figcaption className="mt-3 flex items-center justify-between gap-4 border-b border-[#DED9CE] pb-3 text-[13px] text-[#475569]">
-                <span className="font-serif italic">Dra. Fabíola &amp; Dr. Fernandes</span>
+                <span className="font-serif italic">Dra. Fabíola Lins &amp; Dr. Marciel Fernandes</span>
                 <span className="whitespace-nowrap font-medium text-[#87682A]">{FIRM_INFO.since}</span>
               </figcaption>
             </figure>
@@ -79,20 +79,53 @@ export function AboutSection() {
               <p>
                 Fundada em <strong className="font-semibold text-[#1E293B]">2019</strong>, a{' '}
                 <strong className="font-semibold text-[#1E293B]">Fernandes &amp; Lins Assessoria Jurídica</strong>{' '}
-                é conduzida de perto por <strong className="font-semibold text-[#1E293B]">Dr. Fernandes</strong> e{' '}
-                <strong className="font-semibold text-[#1E293B]">Dra. Fabíola</strong>, unindo presença ativa nos tribunais, estudo técnico rigoroso e acolhimento humano em cada atendimento.
+                é conduzida de perto por <strong className="font-semibold text-[#1E293B]">Dr. Marciel Fernandes</strong> e{' '}
+                <strong className="font-semibold text-[#1E293B]">Dra. Fabíola Lins</strong>, unindo presença ativa nos tribunais, estudo técnico rigoroso e acolhimento humano em cada atendimento.
               </p>
               <p>
                 Com atuação especializada nas áreas <strong className="font-semibold text-[#1E293B]">Cível, Criminal, Trabalhista e Previdenciária</strong>, atendemos clientes presencialmente em nossa sede no bairro do Jordão, em Recife (PE), e de forma 100% digital em todo o território nacional — sempre sem juridiquês e com transparência sobre cada etapa do processo.
               </p>
             </div>
 
-            {/* Real location inline strip */}
-            <div className="mt-6 flex items-start gap-2.5 text-[14.5px] text-[#475569]">
-              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#87682A]" strokeWidth={1.75} aria-hidden="true" />
-              <p>
-                <span className="font-semibold text-[#1E293B]">Sede Presencial:</span>{' '}
-                {FIRM_INFO.addressLine1} · {FIRM_INFO.addressLine2}
+            {/* Official Equipe Técnica & Parceiros e Colaboradores credentials */}
+            <div className="mt-6 grid grid-cols-1 gap-px border border-[#DED9CE] bg-[#DED9CE] sm:grid-cols-2">
+              {FIRM_INFO.partnersOab.map((member) => {
+                const isPartnerCollab = member.group === 'Parceiros e Colaboradores';
+                return (
+                  <div
+                    key={member.oab}
+                    className={`bg-[#F8F7F4] px-5 py-4 ${
+                      isPartnerCollab ? 'sm:col-span-2 sm:flex sm:items-center sm:justify-between sm:gap-4' : ''
+                    }`}
+                  >
+                    <div>
+                      <p className="text-[11px] font-semibold tracking-[0.14em] uppercase text-[#64748B]">
+                        {member.group}
+                      </p>
+                      <p className="mt-1 font-serif text-[18px] font-medium text-[#1E293B]">
+                        {member.name}
+                      </p>
+                    </div>
+                    <p className="mt-1 text-xs font-semibold tracking-[0.1em] uppercase text-[#87682A] tabular-nums sm:mt-0">
+                      {member.role} · {member.oab}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Real location & office hours inline strip */}
+            <div className="mt-6 space-y-2 text-[14.5px] text-[#475569]">
+              <div className="flex items-start gap-2.5">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#87682A]" strokeWidth={1.75} aria-hidden="true" />
+                <p>
+                  <span className="font-semibold text-[#1E293B]">Sede Presencial:</span>{' '}
+                  {FIRM_INFO.addressLine1} · {FIRM_INFO.addressLine2}
+                </p>
+              </div>
+              <p className="pl-6.5 text-[13.5px] text-[#475569]">
+                <span className="font-semibold text-[#1E293B]">Horário:</span> {FIRM_INFO.officeHours} ·{' '}
+                <span className="font-medium text-[#87682A]">{FIRM_INFO.criminalDuty}</span>
               </p>
             </div>
 

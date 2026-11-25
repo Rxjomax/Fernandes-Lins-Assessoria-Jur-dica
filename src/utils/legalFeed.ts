@@ -519,6 +519,59 @@ export function mergeAndFilterNews(
   return recentOnly.length > 0 ? recentOnly : byTribunal;
 }
 
+/**
+ * Interleaves live news from STF, STJ, and Portal Migalhas in round-robin order
+ * so the rotating lateral frames alternate across all active sources without duplicates.
+ */
+export function buildInterleavedNewsQueue(
+  stjItems: CourtNewsItem[],
+  stfItems: CourtNewsItem[],
+  migalhasItems: CourtNewsItem[],
+  maxItems = 12,
+  nowMs = Date.now(),
+  maxAgeDays = MAX_NEWS_AGE_DAYS
+): CourtNewsItem[] {
+  const freshStf = mergeAndFilterNews([], stfItems, 'STF', nowMs, maxAgeDays);
+  const freshStj = mergeAndFilterNews(stjItems, [], 'STJ', nowMs, maxAgeDays);
+
+  const queues = [freshStf, freshStj, migalhasItems];
+  const seenUrls = new Set<string>();
+  const result: CourtNewsItem[] = [];
+  const cursors = [0, 0, 0];
+
+  while (result.length < maxItems) {
+    let addedInPass = false;
+
+    for (let q = 0; q < queues.length; q += 1) {
+      const list = queues[q];
+      while (cursors[q] < list.length) {
+        const candidate = list[cursors[q]];
+        cursors[q] += 1;
+        const key = candidate.url.toLowerCase();
+        if (seenUrls.has(key)) continue;
+        seenUrls.add(key);
+        result.push(candidate);
+        addedInPass = true;
+        break;
+      }
+      if (result.length >= maxItems) break;
+    }
+
+    if (!addedInPass) break;
+  }
+
+  return result;
+}
+
+export function getNextFrameIndex(
+  currentIndex: number,
+  total: number,
+  step = 1
+): number {
+  if (total <= 0) return 0;
+  return (((currentIndex + step) % total) + total) % total;
+}
+
 export function formatBcbValue(rawValue: string, format: IndicatorFormat): string {
   const num = Number.parseFloat(rawValue.replace(',', '.'));
   if (!Number.isFinite(num)) return '—';

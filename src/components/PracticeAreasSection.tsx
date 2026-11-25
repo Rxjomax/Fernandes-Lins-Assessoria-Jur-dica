@@ -1,6 +1,9 @@
 import {
   Briefcase,
+  Building2,
   FileSignature,
+  HeartPulse,
+  KeyRound,
   Landmark,
   ShieldAlert,
   ShieldCheck,
@@ -18,6 +21,9 @@ const ICON_MAP: Record<PracticeArea['icon'], LucideIcon> = {
   landmark: Landmark,
   users: Users,
   'shield-check': ShieldCheck,
+  'key-round': KeyRound,
+  'building-2': Building2,
+  'heart-pulse': HeartPulse,
 };
 
 export function PracticeAreasSection() {

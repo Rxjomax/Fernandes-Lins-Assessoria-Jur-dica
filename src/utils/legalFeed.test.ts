@@ -1,7 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
+  buildInterleavedNewsQueue,
   formatBcbValue,
+  getNextFrameIndex,
   mergeAndFilterNews,
   parseCourtDate,
   parseMigalhasHtml,
@@ -175,4 +177,54 @@ test('formatBcbValue formats Brazilian percentages and currency properly', () =>
   assert.equal(formatBcbValue('0.22', 'percent-month'), '0,22%');
   assert.equal(formatBcbValue('5.8825', 'fx-brl'), 'R$ 5,88');
   assert.match(formatBcbValue('1621.00', 'currency-brl'), /1\.621,00/);
+});
+
+test('buildInterleavedNewsQueue alternates STF, STJ, and Migalhas without duplicates', () => {
+  const nowMs = parseCourtDate('2026-11-25T18:00:00');
+  const makeItem = (
+    id: string,
+    tribunal: 'STJ' | 'STF' | 'MIGALHAS',
+    url: string,
+    dateStr = '2026-11-25T15:00:00'
+  ) => ({
+    id,
+    tribunal,
+    title: `Notícia ${id}`,
+    summary: 'Resumo',
+    url,
+    publishedAt: parseCourtDate(dateStr),
+    publishedLabel: '25 nov 2026',
+  });
+
+  const queue = buildInterleavedNewsQueue(
+    [
+      makeItem('stj-1', 'STJ', 'https://www.stj.jus.br/n1'),
+      makeItem('stj-2', 'STJ', 'https://www.stj.jus.br/n2'),
+    ],
+    [
+      makeItem('stf-1', 'STF', 'https://noticias.stf.jus.br/n1'),
+      makeItem('stf-dup', 'STF', 'https://www.stj.jus.br/n1'),
+    ],
+    [
+      makeItem('mig-1', 'MIGALHAS', 'https://www.migalhas.com.br/quentes/1'),
+      makeItem('mig-2', 'MIGALHAS', 'https://www.migalhas.com.br/quentes/2'),
+    ],
+    5,
+    nowMs,
+    30
+  );
+
+  assert.equal(queue.length, 5);
+  assert.deepEqual(
+    queue.map((item) => item.tribunal),
+    ['STF', 'STJ', 'MIGALHAS', 'STJ', 'MIGALHAS']
+  );
+  assert.equal(new Set(queue.map((i) => i.url)).size, 5);
+});
+
+test('getNextFrameIndex wraps cleanly forward, backward, and on empty lists', () => {
+  assert.equal(getNextFrameIndex(0, 5, 1), 1);
+  assert.equal(getNextFrameIndex(4, 5, 1), 0);
+  assert.equal(getNextFrameIndex(0, 5, -1), 4);
+  assert.equal(getNextFrameIndex(2, 0, 1), 0);
 });

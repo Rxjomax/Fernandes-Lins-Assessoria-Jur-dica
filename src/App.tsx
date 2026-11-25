@@ -4,6 +4,7 @@ import { ContactSection } from './components/ContactSection';
 import { FaqSection } from './components/FaqSection';
 import { Footer } from './components/Footer';
 import { HeroSection } from './components/HeroSection';
+import { LateralNewsFeed } from './components/LateralNewsFeed';
 import { LegalBriefingTab } from './components/LegalBriefingTab';
 import { Navbar, type ActiveTab } from './components/Navbar';
 import { PracticeAreasSection } from './components/PracticeAreasSection';
@@ -99,15 +100,22 @@ export default function App() {
         {activeTab === 'feed' ? (
           <LegalBriefingTab onBackToHome={() => handleNavigate('home', '#inicio')} />
         ) : (
-          <>
-            <HeroSection />
-            <PracticeAreasSection />
-            <AboutSection />
-            <ProcessSection />
-            <SocialProofSection />
-            <FaqSection />
-            <ContactSection />
-          </>
+          <div className="xl:grid xl:grid-cols-[minmax(0,1fr)_340px]">
+            <div className="min-w-0 xl:col-start-1 xl:row-start-1">
+              <HeroSection />
+            </div>
+
+            <LateralNewsFeed onOpenFullFeed={() => handleNavigate('feed')} />
+
+            <div className="min-w-0 xl:col-start-1 xl:row-start-2">
+              <PracticeAreasSection />
+              <AboutSection />
+              <ProcessSection />
+              <SocialProofSection />
+              <FaqSection />
+              <ContactSection />
+            </div>
+          </div>
         )}
       </main>
 

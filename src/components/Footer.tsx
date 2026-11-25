@@ -1,6 +1,6 @@
-import { ExternalLink, Instagram, MapPin, MessageCircle } from 'lucide-react';
+import { ExternalLink, Instagram, Mail, MapPin, MessageCircle } from 'lucide-react';
 import { FIRM_INFO, NAV_LINKS } from '../data/firmContent';
-import { buildGeneralWhatsAppUrl } from '../utils/whatsapp';
+import { buildGeneralWhatsAppUrl, buildSecondaryWhatsAppUrl } from '../utils/whatsapp';
 import type { ActiveTab } from './Navbar';
 
 interface FooterProps {
@@ -42,26 +42,26 @@ export function Footer({ onNavigate }: FooterProps) {
                 {FIRM_INFO.addressLine1}
                 <br />
                 {FIRM_INFO.addressLine2}
+                <br />
+                <span className="text-[13px] text-[#94A3B8]">
+                  {FIRM_INFO.officeHours} · Plantão Criminal 24h
+                </span>
               </p>
             </div>
 
-            {/* Space reserved for partners' OAB numbers */}
+            {/* Official partners' & collaborator's OAB/PE registrations */}
             <div className="mt-6 border-t border-white/10 pt-4 text-[13px] text-[#CBD5E1]">
               <p className="font-semibold text-[#F1F5F9]">Registros Profissionais (OAB/PE)</p>
-              <p className="mt-1.5 flex flex-wrap items-center gap-x-2.5 gap-y-1 tabular-nums">
-                {FIRM_INFO.partnersOab.map((partner, index) => (
-                  <span key={partner.name} className="inline-flex items-center gap-2.5">
-                    {index > 0 && (
-                      <span aria-hidden="true" className="text-[#C5A059]">
-                        ·
-                      </span>
-                    )}
-                    <span>
-                      {partner.name} ({partner.oab})
-                    </span>
-                  </span>
+              <ul className="mt-2 space-y-1.5 tabular-nums">
+                {FIRM_INFO.partnersOab.map((member) => (
+                  <li key={member.oab} className="flex flex-wrap items-baseline gap-x-2">
+                    <span className="font-medium text-[#F1F5F9]">{member.name}</span>
+                    <span aria-hidden="true" className="text-[#C5A059]">·</span>
+                    <span className="text-[#CBD5E1]">{member.oab}</span>
+                    <span className="text-[12px] text-[#94A3B8]">({member.role})</span>
+                  </li>
                 ))}
-              </p>
+              </ul>
             </div>
           </div>
 
@@ -117,6 +117,30 @@ export function Footer({ onNavigate }: FooterProps) {
                   <span>WhatsApp {FIRM_INFO.whatsappDisplay}</span>
                 </span>
                 <ExternalLink className="h-4 w-4 text-[#C5A059]" aria-hidden="true" />
+              </a>
+
+              <a
+                href={buildSecondaryWhatsAppUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex min-h-[44px] items-center justify-between border-b border-white/10 py-2 text-[15px] text-[#F1F5F9] transition-colors hover:text-[#C5A059] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C5A059]"
+              >
+                <span className="inline-flex items-center gap-2.5 tabular-nums">
+                  <MessageCircle className="h-4 w-4 text-[#C5A059]" aria-hidden="true" />
+                  <span>WhatsApp {FIRM_INFO.whatsappSecondaryDisplay}</span>
+                </span>
+                <ExternalLink className="h-4 w-4 text-[#C5A059]" aria-hidden="true" />
+              </a>
+
+              <a
+                href={`mailto:${FIRM_INFO.email}`}
+                className="flex min-h-[44px] items-center justify-between gap-2 border-b border-white/10 py-2 text-[14px] text-[#F1F5F9] transition-colors hover:text-[#C5A059] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C5A059]"
+              >
+                <span className="inline-flex min-w-0 items-center gap-2.5">
+                  <Mail className="h-4 w-4 shrink-0 text-[#C5A059]" aria-hidden="true" />
+                  <span className="truncate">{FIRM_INFO.email}</span>
+                </span>
+                <ExternalLink className="h-4 w-4 shrink-0 text-[#C5A059]" aria-hidden="true" />
               </a>
 
               <a
