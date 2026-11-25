@@ -15,7 +15,6 @@ import { FIRM_INFO, PRACTICE_AREAS } from '../data/firmContent';
 import {
   buildFormWhatsAppUrl,
   buildGeneralWhatsAppUrl,
-  buildSecondaryWhatsAppUrl,
   formatBrazilPhone,
   formatContactMessage,
   validateContactForm,
@@ -113,37 +112,26 @@ export function ContactSection() {
             </p>
 
             <div className="mt-9 divide-y divide-[#DED9CE] border-y border-[#DED9CE]">
-              <div className="py-4">
-                <div className="flex items-start gap-3.5">
-                  <MessageCircle className="mt-1 h-5 w-5 shrink-0 text-[#87682A]" strokeWidth={1.6} aria-hidden="true" />
-                  <div className="min-w-0 flex-1">
+              <a
+                href={buildGeneralWhatsAppUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Conversar no WhatsApp Oficial ${FIRM_INFO.whatsappDisplay}`}
+                className="flex min-h-[60px] items-center justify-between gap-4 py-4 transition-colors hover:text-[#87682A] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#87682A]"
+              >
+                <div className="flex items-center gap-3.5">
+                  <MessageCircle className="h-5 w-5 shrink-0 text-[#87682A]" strokeWidth={1.6} aria-hidden="true" />
+                  <div>
                     <p className="text-xs font-semibold tracking-[0.1em] uppercase text-[#64748B]">
-                      WhatsApp &amp; Telefones
+                      WhatsApp Oficial
                     </p>
-                    <div className="mt-1 flex flex-col gap-0.5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-3 sm:gap-y-1 tabular-nums">
-                      <a
-                        href={buildGeneralWhatsAppUrl()}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex min-h-[44px] items-center gap-1.5 text-[16px] font-medium text-[#1E293B] transition-colors hover:text-[#87682A] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#87682A]"
-                      >
-                        <span>{FIRM_INFO.whatsappDisplay}</span>
-                        <ExternalLink className="h-3.5 w-3.5 text-[#87682A]" aria-hidden="true" />
-                      </a>
-                      <span aria-hidden="true" className="hidden text-[#94A3B8] sm:inline">·</span>
-                      <a
-                        href={buildSecondaryWhatsAppUrl()}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex min-h-[44px] items-center gap-1.5 text-[16px] font-medium text-[#1E293B] transition-colors hover:text-[#87682A] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#87682A]"
-                      >
-                        <span>{FIRM_INFO.whatsappSecondaryDisplay}</span>
-                        <ExternalLink className="h-3.5 w-3.5 text-[#87682A]" aria-hidden="true" />
-                      </a>
-                    </div>
+                    <p className="text-[16px] font-medium text-[#1E293B] tabular-nums">
+                      {FIRM_INFO.whatsappDisplay}
+                    </p>
                   </div>
                 </div>
-              </div>
+                <ExternalLink className="h-4 w-4 shrink-0 text-[#87682A]" aria-hidden="true" />
+              </a>
 
               <a
                 href={`mailto:${FIRM_INFO.email}`}

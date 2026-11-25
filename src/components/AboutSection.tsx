@@ -87,31 +87,21 @@ export function AboutSection() {
               </p>
             </div>
 
-            {/* Official Equipe Técnica & Parceiros e Colaboradores credentials */}
+            {/* Official Equipe Técnica credentials */}
             <div className="mt-6 grid grid-cols-1 gap-px border border-[#DED9CE] bg-[#DED9CE] sm:grid-cols-2">
-              {FIRM_INFO.partnersOab.map((member) => {
-                const isPartnerCollab = member.group === 'Parceiros e Colaboradores';
-                return (
-                  <div
-                    key={member.oab}
-                    className={`bg-[#F8F7F4] px-5 py-4 ${
-                      isPartnerCollab ? 'sm:col-span-2 sm:flex sm:items-center sm:justify-between sm:gap-4' : ''
-                    }`}
-                  >
-                    <div>
-                      <p className="text-[11px] font-semibold tracking-[0.14em] uppercase text-[#64748B]">
-                        {member.group}
-                      </p>
-                      <p className="mt-1 font-serif text-[18px] font-medium text-[#1E293B]">
-                        {member.name}
-                      </p>
-                    </div>
-                    <p className="mt-1 text-xs font-semibold tracking-[0.1em] uppercase text-[#87682A] tabular-nums sm:mt-0">
-                      {member.role} · {member.oab}
-                    </p>
-                  </div>
-                );
-              })}
+              {FIRM_INFO.partnersOab.map((member) => (
+                <div key={member.oab} className="bg-[#F8F7F4] px-5 py-4">
+                  <p className="text-[11px] font-semibold tracking-[0.14em] uppercase text-[#64748B]">
+                    {member.group}
+                  </p>
+                  <p className="mt-1 font-serif text-[18px] font-medium text-[#1E293B]">
+                    {member.name}
+                  </p>
+                  <p className="mt-1 text-xs font-semibold tracking-[0.1em] uppercase text-[#87682A] tabular-nums">
+                    {member.role} · {member.oab}
+                  </p>
+                </div>
+              ))}
             </div>
 
             {/* Real location & office hours inline strip */}

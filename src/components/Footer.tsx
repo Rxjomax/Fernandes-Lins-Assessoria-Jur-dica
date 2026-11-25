@@ -1,6 +1,6 @@
 import { ExternalLink, Instagram, Mail, MapPin, MessageCircle } from 'lucide-react';
 import { FIRM_INFO, NAV_LINKS } from '../data/firmContent';
-import { buildGeneralWhatsAppUrl, buildSecondaryWhatsAppUrl } from '../utils/whatsapp';
+import { buildGeneralWhatsAppUrl } from '../utils/whatsapp';
 import type { ActiveTab } from './Navbar';
 
 interface FooterProps {
@@ -49,7 +49,7 @@ export function Footer({ onNavigate }: FooterProps) {
               </p>
             </div>
 
-            {/* Official partners' & collaborator's OAB/PE registrations */}
+            {/* Official partners' OAB/PE registrations */}
             <div className="mt-6 border-t border-white/10 pt-4 text-[13px] text-[#CBD5E1]">
               <p className="font-semibold text-[#F1F5F9]">Registros Profissionais (OAB/PE)</p>
               <ul className="mt-2 space-y-1.5 tabular-nums">
@@ -115,19 +115,6 @@ export function Footer({ onNavigate }: FooterProps) {
                 <span className="inline-flex items-center gap-2.5 tabular-nums">
                   <MessageCircle className="h-4 w-4 text-[#C5A059]" aria-hidden="true" />
                   <span>WhatsApp {FIRM_INFO.whatsappDisplay}</span>
-                </span>
-                <ExternalLink className="h-4 w-4 text-[#C5A059]" aria-hidden="true" />
-              </a>
-
-              <a
-                href={buildSecondaryWhatsAppUrl()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex min-h-[44px] items-center justify-between border-b border-white/10 py-2 text-[15px] text-[#F1F5F9] transition-colors hover:text-[#C5A059] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C5A059]"
-              >
-                <span className="inline-flex items-center gap-2.5 tabular-nums">
-                  <MessageCircle className="h-4 w-4 text-[#C5A059]" aria-hidden="true" />
-                  <span>WhatsApp {FIRM_INFO.whatsappSecondaryDisplay}</span>
                 </span>
                 <ExternalLink className="h-4 w-4 text-[#C5A059]" aria-hidden="true" />
               </a>

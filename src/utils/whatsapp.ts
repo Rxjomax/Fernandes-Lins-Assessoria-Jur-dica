@@ -44,13 +44,6 @@ export function buildGeneralWhatsAppUrl(): string {
   );
 }
 
-export function buildSecondaryWhatsAppUrl(): string {
-  return buildWhatsAppUrl(
-    'Olá, equipe Fernandes & Lins Assessoria Jurídica. Gostaria de agendar uma análise do meu caso.',
-    FIRM_INFO.whatsappSecondaryNumber
-  );
-}
-
 export function buildAreaWhatsAppUrl(areaTitle: string): string {
   return buildWhatsAppUrl(
     `Olá, equipe Fernandes & Lins! Gostaria de falar com um especialista sobre ${areaTitle}.`

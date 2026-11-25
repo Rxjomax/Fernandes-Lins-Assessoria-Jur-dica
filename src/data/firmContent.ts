@@ -51,7 +51,7 @@ export interface TeamMemberOab {
   name: string;
   role: string;
   oab: string;
-  group: 'Equipe Técnica' | 'Parceiros e Colaboradores';
+  group: 'Equipe Técnica';
 }
 
 export const FIRM_INFO = {
@@ -60,8 +60,6 @@ export const FIRM_INFO = {
   since: 'Desde 2019',
   whatsappNumber: '5581986693251',
   whatsappDisplay: '(81) 98669-3251',
-  whatsappSecondaryNumber: '5581984873003',
-  whatsappSecondaryDisplay: '(81) 98487-3003',
   email: 'fernandeselinsassessoriajuridica@outlook.com',
   instagramHandle: '@fernandeselins1',
   instagramUrl: 'https://www.instagram.com/fernandeselins1/',
@@ -122,12 +120,6 @@ export const FIRM_INFO = {
       role: 'Sócia Administradora',
       oab: 'OAB/PE 50.250',
       group: 'Equipe Técnica',
-    },
-    {
-      name: 'Dr. Fábio Lins',
-      role: 'Parceiro Técnico',
-      oab: 'OAB/PE 36.017',
-      group: 'Parceiros e Colaboradores',
     },
   ] as TeamMemberOab[],
   oabDisclaimer:
@@ -252,7 +244,7 @@ export const PROCESS_STEPS: ProcessStep[] = [
     number: '01',
     title: 'Contato Inicial',
     description:
-      'Você relata sua situação pelo WhatsApp (81) 98669-3251 / (81) 98487-3003, por e-mail ou pelo formulário abaixo, com total sigilo profissional.',
+      'Você relata sua situação pelo WhatsApp (81) 98669-3251, por e-mail ou pelo formulário abaixo, com total sigilo profissional.',
   },
   {
     number: '02',
@@ -310,7 +302,7 @@ export const FAQ_ITEMS: FaqItem[] = [
     id: 'faq-horario-plantao',
     question: 'Qual o horário de funcionamento e como funciona o plantão criminal?',
     answer:
-      'O atendimento presencial funciona de segunda-feira a sexta-feira, das 08h00 às 18h00. Para urgências como prisões em flagrante e audiências de custódia, disponibilizamos Plantão Criminal Extraordinário 24h (mediante consulta de disponibilidade pelos números (81) 98669-3251 ou (81) 98487-3003).',
+      'O atendimento presencial funciona de segunda-feira a sexta-feira, das 08h00 às 18h00. Para urgências como prisões em flagrante e audiências de custódia, disponibilizamos Plantão Criminal Extraordinário 24h (mediante consulta de disponibilidade pelo WhatsApp (81) 98669-3251).',
   },
   {
     id: 'faq-documentos',
