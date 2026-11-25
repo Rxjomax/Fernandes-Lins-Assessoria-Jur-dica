@@ -4,6 +4,10 @@ export interface PracticeArea {
   title: string;
   description: string;
   highlights: string;
+  image?: string;
+  imageAlt?: string;
+  imagePosition?: string;
+  fullWidth?: boolean;
   icon:
     | 'file-signature'
     | 'gavel'
@@ -13,7 +17,8 @@ export interface PracticeArea {
     | 'shield-check'
     | 'key-round'
     | 'building-2'
-    | 'heart-pulse';
+    | 'heart-pulse'
+    | 'wallet';
 }
 
 export interface FirmPillar {
@@ -142,6 +147,10 @@ export const PRACTICE_AREAS: PracticeArea[] = [
     description:
       'Atuação discreta e técnica em pensão alimentícia, guarda, divórcio, curatela, retificação de registro civil, inventário e partilha de bens.',
     highlights: 'Pensão · Guarda · Divórcio · Inventário · Curatela',
+    image: '/assets/aistudio/WhatsApp_Image_2026-11-25_at_14.39.19_2a5dac8c.jpeg',
+    imageAlt:
+      'Dra. Fabíola Lins em seu escritório apresentando orientações jurídicas de Direito de Família e Sucessões',
+    imagePosition: 'object-[50%_40%]',
     icon: 'users',
   },
   {
@@ -149,27 +158,39 @@ export const PRACTICE_AREAS: PracticeArea[] = [
     number: '02',
     title: 'Direitos do Consumidor',
     description:
-      'Responsabilidade do fornecedor, ações por erro médico (dano moral, estético e material), empréstimo bancário ilegal e desconto indevido.',
-    highlights: 'Erro Médico · Bancos · Desconto Indevido',
+      'Responsabilidade do fornecedor, ações por erro médico (dano moral, estético e material), cobranças abusivas e defesa do consumidor.',
+    highlights: 'Erro Médico · Fornecedor · Danos Morais e Materiais',
+    image: '/assets/aistudio/WhatsApp_Image_2026-11-25_at_14.39.20__1__523fcf69.jpeg',
+    imageAlt:
+      'Dr. Marciel Fernandes em reunião de estratégia e mediação conduzindo demandas de Direitos do Consumidor',
+    imagePosition: 'object-[50%_38%]',
     icon: 'shield-check',
   },
   {
-    id: 'possessorios',
+    id: 'bancario',
     number: '03',
+    title: 'Direito Bancário',
+    description:
+      'Atuação contra empréstimo bancário ilegal, descontos indevidos em folha ou benefício, fraudes financeiras e revisão de contratos bancários.',
+    highlights: 'Empréstimo Ilegal · Desconto Indevido · Revisão Bancária',
+    image: '/assets/aistudio/WhatsApp_Image_2026-11-25_at_14.39.20__2__4f8e3a28.jpeg',
+    imageAlt:
+      'Dr. Marciel Fernandes em seu gabinete no escritório Fernandes & Lins atuando em demandas de Direito Bancário',
+    imagePosition: 'object-[50%_36%]',
+    icon: 'wallet',
+  },
+  {
+    id: 'possessorios',
+    number: '04',
     title: 'Direitos Possessórios',
     description:
       'Defesa estratégica da posse em ações de usucapião, reintegração de posse, embargos de terceiro e regularização possessória.',
     highlights: 'Usucapião · Reintegração de Posse · Embargos de Terceiro',
+    image: '/assets/aistudio/WhatsApp_Image_2026-11-25_at_14.39.20__3__84c0dae7.jpeg',
+    imageAlt:
+      'Dr. Marciel Fernandes em seu gabinete analisando documentação de Direitos Possessórios e regularização',
+    imagePosition: 'object-[50%_32%]',
     icon: 'key-round',
-  },
-  {
-    id: 'imobiliario',
-    number: '04',
-    title: 'Direito Imobiliário',
-    description:
-      'Regularização imobiliária, estruturação de holding familiar para proteção patrimonial, contratos e defesa em ação de despejo.',
-    highlights: 'Regularização · Holding Familiar · Ação de Despejo',
-    icon: 'building-2',
   },
   {
     id: 'saude',
@@ -178,24 +199,36 @@ export const PRACTICE_AREAS: PracticeArea[] = [
     description:
       'Medidas urgentes e pedidos liminares para concessão de medicamentos de alto custo, tratamento com home care e disponibilização de leito de UTI.',
     highlights: 'Medicamentos de Alto Custo · Home Care · Leito de UTI',
+    image: '/assets/aistudio/WhatsApp_Image_2026-11-25_at_14.39.19__1__5440522b.jpeg',
+    imageAlt:
+      'Dra. Fabíola Lins em seu escritório analisando processos e medidas urgentes de Direito da Saúde',
+    imagePosition: 'object-[50%_38%]',
     icon: 'heart-pulse',
   },
   {
-    id: 'trabalhista',
+    id: 'imobiliario',
     number: '06',
-    title: 'Direito Trabalhista',
+    title: 'Direito Imobiliário',
     description:
-      'Ação e defesa em processo trabalhista, verbas rescisórias, adicional de insalubridade, audiências no TRT e assessoria preventiva.',
-    highlights: 'Ação e Defesa · Atuação no TRT · Preventivo',
-    icon: 'briefcase',
+      'Regularização imobiliária, estruturação de holding familiar para proteção patrimonial, contratos e defesa em ação de despejo.',
+    highlights: 'Regularização · Holding Familiar · Ação de Despejo',
+    image: '/assets/aistudio/WhatsApp_Image_2026-11-25_at_14.39.20_eb1a59c4.jpeg',
+    imageAlt:
+      'Dr. Marciel Fernandes conduzindo reunião patrimonial e societária em sala de conferência para Direito Imobiliário e Holding Familiar',
+    imagePosition: 'object-[50%_85%]',
+    icon: 'building-2',
   },
   {
     id: 'criminal',
     number: '07',
-    title: 'Defesa Criminal',
+    title: 'Direito Criminal',
     description:
-      'Acompanhamento em inquérito policial, audiência de custódia, defesa processual e violência doméstica, com plantão criminal extraordinário 24h.',
-    highlights: 'Inquérito · Custódia · Violência Doméstica · Plantão 24h',
+      'Acompanhamento em inquérito policial, audiência de custódia, Tribunal do Júri, defesa processual e violência doméstica, com plantão criminal extraordinário 24h.',
+    highlights: 'Tribunal do Júri · Inquérito · Custódia · Plantão 24h',
+    image: '/assets/aistudio/WhatsApp_Image_2026-11-25_at_14.39.19__4__bacb8237.jpeg',
+    imageAlt:
+      'Dr. Marciel Fernandes em sustentação oral no Plenário do Tribunal do Júri atuando em Direito Criminal',
+    imagePosition: 'object-[50%_38%]',
     icon: 'gavel',
   },
   {
@@ -205,15 +238,33 @@ export const PRACTICE_AREAS: PracticeArea[] = [
     description:
       'Planejamento previdenciário, aposentadorias, pensões e Benefício de Prestação Continuada (BPC/LOAS para idosos e pessoas com deficiência — autista e geral).',
     highlights: 'Planejamento · Aposentadorias · BPC/LOAS (Idoso e PCD)',
+    image: '/assets/aistudio/WhatsApp_Image_2026-11-25_at_14.39.19__2__ea1acbed.jpeg',
+    imageAlt:
+      'Dra. Fabíola Lins em atendimento presencial de Direito Previdenciário com cliente idoso no escritório',
+    imagePosition: 'object-[50%_40%]',
     icon: 'landmark',
   },
   {
-    id: 'administrativo-consultas',
+    id: 'trabalhista',
     number: '09',
+    title: 'Direito Trabalhista',
+    description:
+      'Ação e defesa em processo trabalhista, verbas rescisórias, adicional de insalubridade, audiências no TRT e assessoria preventiva.',
+    highlights: 'Ação e Defesa · Atuação no TRT · Preventivo',
+    image: '/assets/aistudio/WhatsApp_Image_2026-11-25_at_14.39.19__3__bff4d965.jpeg',
+    imageAlt:
+      'Dra. Fabíola Lins em retrato profissional no escritório Fernandes & Lins atuando em Direito Trabalhista',
+    imagePosition: 'object-[50%_26%]',
+    icon: 'briefcase',
+  },
+  {
+    id: 'administrativo-consultas',
+    number: '10',
     title: 'Demandas Administrativas e Consultas',
     description:
-      'Resolução de demandas administrativas junto a órgãos públicos e instituições, além de consultas jurídicas presenciais ou on-line.',
+      'Resolução de demandas administrativas junto a órgãos públicos e instituições, além de consultas jurídicas presenciais em Recife ou on-line em todo o Brasil.',
     highlights: 'Via Administrativa · Consulta Presencial · Consulta On-line',
+    fullWidth: true,
     icon: 'file-signature',
   },
 ];
