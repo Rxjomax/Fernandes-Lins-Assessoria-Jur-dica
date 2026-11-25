@@ -21,10 +21,10 @@ export function AboutSection() {
                 {!failedImages[FIRM_INFO.partnersMainPhoto] ? (
                   <img
                     src={FIRM_INFO.partnersMainPhoto}
-                    alt="Dra. Fabíola Lins e Dr. Marciel Fernandes, advogados sócios da Fernandes & Lins Assessoria Jurídica, em atuação no tribunal"
+                    alt="Dr. Marciel Fernandes e Dra. Fabíola Lins, sócios administradores da Fernandes & Lins Assessoria Jurídica, em seu escritório"
                     referrerPolicy="no-referrer"
                     onError={() => markFailed(FIRM_INFO.partnersMainPhoto)}
-                    className="h-full w-full object-cover object-top"
+                    className="h-full w-full object-cover object-[50%_30%]"
                   />
                 ) : (
                   <div className="flex h-full w-full flex-col justify-end p-8 text-[#F1F5F9]">
@@ -34,7 +34,7 @@ export function AboutSection() {
                 )}
               </div>
               <figcaption className="mt-3 flex items-center justify-between gap-4 border-b border-[#DED9CE] pb-3 text-[13px] text-[#475569]">
-                <span className="font-serif italic">Dra. Fabíola Lins &amp; Dr. Marciel Fernandes</span>
+                <span className="font-serif italic">Dr. Marciel Fernandes &amp; Dra. Fabíola Lins</span>
                 <span className="whitespace-nowrap font-medium text-[#87682A]">{FIRM_INFO.since}</span>
               </figcaption>
             </figure>

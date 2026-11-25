@@ -83,7 +83,7 @@ export const FIRM_INFO = {
   googleTopTags: 'Advogados · Competência · Escritório · Dedicação',
   logoImage: '/assets/real/logo-fl-circle.png',
   heroImage: '/src/assets/images/hero_law_architecture_1795563157470.jpg',
-  partnersMainPhoto: '/assets/real/socios-tribunal.jpg',
+  partnersMainPhoto: '/assets/aistudio/WhatsApp_Image_2026-11-25_at_20.55.34_68834d2c.jpeg',
   galleryPhotos: [
     {
       src: '/assets/real/atuacao-trt.jpg',
