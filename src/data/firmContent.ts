@@ -96,11 +96,11 @@ export const FIRM_INFO = {
 } as const;
 
 export const NAV_LINKS = [
-  { label: 'Áreas de Atuação', href: '#areas' },
-  { label: 'Sobre', href: '#sobre' },
-  { label: 'Como Funciona', href: '#como-funciona' },
-  { label: 'Avaliações', href: '#avaliacoes' },
-  { label: 'Contato', href: '#contato' },
+  { label: 'Áreas de Atuação', href: '#areas', tab: 'home' as const },
+  { label: 'Sobre', href: '#sobre', tab: 'home' as const },
+  { label: 'Avaliações', href: '#avaliacoes', tab: 'home' as const },
+  { label: 'Feed de Notícias', href: '#feed-de-noticias', tab: 'feed' as const },
+  { label: 'Contato', href: '#contato', tab: 'home' as const },
 ] as const;
 
 export const PRACTICE_AREAS: PracticeArea[] = [

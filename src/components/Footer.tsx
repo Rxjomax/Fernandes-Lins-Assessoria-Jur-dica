@@ -1,8 +1,13 @@
 import { ExternalLink, Instagram, MapPin, MessageCircle } from 'lucide-react';
 import { FIRM_INFO, NAV_LINKS } from '../data/firmContent';
 import { buildGeneralWhatsAppUrl } from '../utils/whatsapp';
+import type { ActiveTab } from './Navbar';
 
-export function Footer() {
+interface FooterProps {
+  onNavigate: (tab: ActiveTab, sectionHref?: string) => void;
+}
+
+export function Footer({ onNavigate }: FooterProps) {
   const year = new Date().getFullYear();
 
   return (
@@ -70,6 +75,10 @@ export function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onNavigate(link.tab, link.href);
+                    }}
                     className="inline-flex min-h-[44px] items-center text-[15px] text-[#CBD5E1] transition-colors hover:text-[#F1F5F9] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C5A059]"
                   >
                     {link.label}
@@ -79,6 +88,10 @@ export function Footer() {
               <li>
                 <a
                   href="#duvidas"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate('home', '#duvidas');
+                  }}
                   className="inline-flex min-h-[44px] items-center text-[15px] text-[#CBD5E1] transition-colors hover:text-[#F1F5F9] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C5A059]"
                 >
                   Perguntas Frequentes
