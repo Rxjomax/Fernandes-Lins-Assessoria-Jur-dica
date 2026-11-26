@@ -150,7 +150,7 @@ export const PRACTICE_AREAS: PracticeArea[] = [
     image: '/assets/aistudio/WhatsApp_Image_2026-11-25_at_14.39.19_2a5dac8c.jpeg',
     imageAlt:
       'Dra. Fabíola Lins em seu escritório apresentando orientações jurídicas de Direito de Família e Sucessões',
-    imagePosition: 'object-[50%_40%]',
+    imagePosition: 'object-[50%_38%]',
     icon: 'users',
   },
   {
@@ -163,7 +163,7 @@ export const PRACTICE_AREAS: PracticeArea[] = [
     image: '/assets/aistudio/WhatsApp_Image_2026-11-25_at_14.39.20__1__523fcf69.jpeg',
     imageAlt:
       'Dr. Marciel Fernandes em reunião de estratégia e mediação conduzindo demandas de Direitos do Consumidor',
-    imagePosition: 'object-[50%_38%]',
+    imagePosition: 'object-[50%_36%]',
     icon: 'shield-check',
   },
   {
@@ -176,7 +176,7 @@ export const PRACTICE_AREAS: PracticeArea[] = [
     image: '/assets/aistudio/WhatsApp_Image_2026-11-25_at_14.39.20__2__4f8e3a28.jpeg',
     imageAlt:
       'Dr. Marciel Fernandes em seu gabinete no escritório Fernandes & Lins atuando em demandas de Direito Bancário',
-    imagePosition: 'object-[50%_36%]',
+    imagePosition: 'object-[50%_38%]',
     icon: 'wallet',
   },
   {
@@ -189,7 +189,7 @@ export const PRACTICE_AREAS: PracticeArea[] = [
     image: '/assets/aistudio/WhatsApp_Image_2026-11-25_at_14.39.20__3__84c0dae7.jpeg',
     imageAlt:
       'Dr. Marciel Fernandes em seu gabinete analisando documentação de Direitos Possessórios e regularização',
-    imagePosition: 'object-[50%_32%]',
+    imagePosition: 'object-[50%_34%]',
     icon: 'key-round',
   },
   {
@@ -202,7 +202,7 @@ export const PRACTICE_AREAS: PracticeArea[] = [
     image: '/assets/aistudio/WhatsApp_Image_2026-11-25_at_14.39.19__1__5440522b.jpeg',
     imageAlt:
       'Dra. Fabíola Lins em seu escritório analisando processos e medidas urgentes de Direito da Saúde',
-    imagePosition: 'object-[50%_38%]',
+    imagePosition: 'object-[50%_36%]',
     icon: 'heart-pulse',
   },
   {
@@ -215,7 +215,7 @@ export const PRACTICE_AREAS: PracticeArea[] = [
     image: '/assets/aistudio/WhatsApp_Image_2026-11-25_at_14.39.20_eb1a59c4.jpeg',
     imageAlt:
       'Dr. Marciel Fernandes conduzindo reunião patrimonial e societária em sala de conferência para Direito Imobiliário e Holding Familiar',
-    imagePosition: 'object-[50%_85%]',
+    imagePosition: 'object-[50%_68%]',
     icon: 'building-2',
   },
   {
@@ -228,7 +228,7 @@ export const PRACTICE_AREAS: PracticeArea[] = [
     image: '/assets/aistudio/WhatsApp_Image_2026-11-25_at_14.39.19__4__bacb8237.jpeg',
     imageAlt:
       'Dr. Marciel Fernandes em sustentação oral no Plenário do Tribunal do Júri atuando em Direito Criminal',
-    imagePosition: 'object-[50%_38%]',
+    imagePosition: 'object-[50%_26%]',
     icon: 'gavel',
   },
   {
@@ -241,7 +241,7 @@ export const PRACTICE_AREAS: PracticeArea[] = [
     image: '/assets/aistudio/WhatsApp_Image_2026-11-25_at_14.39.19__2__ea1acbed.jpeg',
     imageAlt:
       'Dra. Fabíola Lins em atendimento presencial de Direito Previdenciário com cliente idoso no escritório',
-    imagePosition: 'object-[50%_40%]',
+    imagePosition: 'object-[50%_30%]',
     icon: 'landmark',
   },
   {
@@ -254,7 +254,7 @@ export const PRACTICE_AREAS: PracticeArea[] = [
     image: '/assets/aistudio/WhatsApp_Image_2026-11-25_at_14.39.19__3__bff4d965.jpeg',
     imageAlt:
       'Dra. Fabíola Lins em retrato profissional no escritório Fernandes & Lins atuando em Direito Trabalhista',
-    imagePosition: 'object-[50%_26%]',
+    imagePosition: 'object-[50%_20%]',
     icon: 'briefcase',
   },
   {

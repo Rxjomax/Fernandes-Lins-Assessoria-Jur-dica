@@ -119,7 +119,7 @@ export function SocialProofSection() {
                           onError={() =>
                             setFailedImages((prev) => ({ ...prev, [photo.src]: true }))
                           }
-                          className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.06]"
+                          className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.02]"
                         />
                       ) : (
                         <div className="flex h-full w-full items-end p-2 text-xs text-[#CBD5E1]">

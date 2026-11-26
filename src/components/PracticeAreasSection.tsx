@@ -154,7 +154,7 @@ export function PracticeAreasSection() {
                     <div className="mt-6">
                       {showPhoto && area.image && (
                         <figure className="mb-5 overflow-hidden border border-[#DED9CE] bg-[#E8E4DC] transition-colors duration-300 group-hover:border-[#C5A059]/60">
-                          <div className="aspect-[4/3] w-full overflow-hidden">
+                          <div className="aspect-[3/4] w-full overflow-hidden">
                             <img
                               src={area.image}
                               alt={area.imageAlt || area.title}
@@ -166,7 +166,7 @@ export function PracticeAreasSection() {
                               }
                               className={`h-full w-full object-cover ${
                                 area.imagePosition || 'object-center'
-                              } transition-transform duration-700 ease-out group-hover:scale-[1.05]`}
+                              } transition-transform duration-700 ease-out group-hover:scale-[1.02]`}
                             />
                           </div>
                         </figure>

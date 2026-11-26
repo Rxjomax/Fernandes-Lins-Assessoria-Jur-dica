@@ -17,14 +17,14 @@ export function AboutSection() {
           {/* Real editorial documentary photos of the partners and courtroom practice */}
           <Reveal variant="image" className="lg:col-span-5">
             <figure className="group">
-              <div className="relative aspect-[4/5] w-full overflow-hidden border border-[#DED9CE] bg-[#0B192C] transition-colors duration-300 group-hover:border-[#C5A059]/70">
+              <div className="relative aspect-[3/4] w-full overflow-hidden border border-[#DED9CE] bg-[#0B192C] transition-colors duration-300 group-hover:border-[#C5A059]/70">
                 {!failedImages[FIRM_INFO.partnersMainPhoto] ? (
                   <img
                     src={FIRM_INFO.partnersMainPhoto}
                     alt="Dr. Marciel Fernandes e Dra. Fabíola Lins, sócios administradores da Fernandes & Lins Assessoria Jurídica, em seu escritório"
                     referrerPolicy="no-referrer"
                     onError={() => markFailed(FIRM_INFO.partnersMainPhoto)}
-                    className="h-full w-full object-cover object-[50%_30%] transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                    className="h-full w-full object-cover object-[50%_24%] transition-transform duration-700 ease-out group-hover:scale-[1.02]"
                   />
                 ) : (
                   <div className="flex h-full w-full flex-col justify-end p-8 text-[#F1F5F9]">
@@ -50,7 +50,7 @@ export function AboutSection() {
                         alt={photo.alt}
                         referrerPolicy="no-referrer"
                         onError={() => markFailed(photo.src)}
-                        className="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.06]"
+                        className="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.02]"
                       />
                     ) : (
                       <div className="flex h-full w-full items-end p-2 text-[11px] text-[#CBD5E1]">
