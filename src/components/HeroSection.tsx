@@ -15,15 +15,32 @@ export function HeroSection() {
       id="inicio"
       className="relative isolate overflow-hidden bg-[#0B192C] text-[#F1F5F9]"
     >
-      {/* Architectural backdrop photograph with gentle Ken Burns settle */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
+      {/* Mobile uncropped architectural reception view blended into navy canvas */}
+      {!imgFailed && (
+        <div className="relative w-full aspect-[2/1] overflow-hidden bg-[#0B192C] sm:hidden">
+          <img
+            src={FIRM_INFO.heroImage}
+            alt="Recepção do escritório Fernandes & Lins Assessoria Jurídica com letreiro institucional em parede arquitetônica"
+            referrerPolicy="no-referrer"
+            onError={() => setImgFailed(true)}
+            className="h-full w-full object-cover object-center opacity-90"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-gradient-to-t from-[#0B192C] via-[#0B192C]/25 to-[#0B192C]/35"
+          />
+        </div>
+      )}
+
+      {/* Tablet & desktop full-bleed architectural backdrop photograph */}
+      <div className="absolute inset-0 -z-10 hidden overflow-hidden sm:block">
         {!imgFailed ? (
           <img
             src={FIRM_INFO.heroImage}
             alt="Recepção do escritório Fernandes & Lins Assessoria Jurídica com letreiro institucional em parede arquitetônica"
             referrerPolicy="no-referrer"
             onError={() => setImgFailed(true)}
-            className="hero-backdrop-drift h-full w-full object-cover object-left opacity-55 sm:opacity-65"
+            className="hero-backdrop-drift h-full w-full object-cover object-left opacity-65"
           />
         ) : (
           <div
@@ -41,7 +58,7 @@ export function HeroSection() {
         />
       </div>
 
-      <div className="mx-auto max-w-6xl px-5 pb-16 pt-12 sm:px-8 sm:pb-24 sm:pt-20 lg:pb-28 lg:pt-24">
+      <div className="relative mx-auto max-w-6xl px-5 pb-14 pt-3 -mt-4 sm:mt-0 sm:px-8 sm:pb-24 sm:pt-20 lg:pb-28 lg:pt-24">
         <div className="max-w-3xl">
           {/* Editorial kicker without pill enclosure */}
           <div
@@ -54,14 +71,14 @@ export function HeroSection() {
 
           <h1
             style={heroDelay(130)}
-            className="hero-enter mt-5 font-serif text-[30px] leading-[1.14] font-medium tracking-[-0.01em] text-[#F1F5F9] text-balance sm:text-[42px] lg:text-[52px]"
+            className="hero-enter mt-3.5 sm:mt-5 font-serif text-[28px] leading-[1.14] font-medium tracking-[-0.01em] text-[#F1F5F9] text-balance sm:text-[42px] lg:text-[52px]"
           >
             Defesa estratégica e soluções jurídicas sob medida para proteger seus direitos e seu patrimônio.
           </h1>
 
           <p
             style={heroDelay(220)}
-            className="hero-enter mt-6 max-w-[58ch] text-[16px] sm:text-[18px] leading-[1.65] text-[#CBD5E1]"
+            className="hero-enter mt-4 sm:mt-6 max-w-[58ch] text-[16px] sm:text-[18px] leading-[1.6] sm:leading-[1.65] text-[#CBD5E1]"
           >
             Advocacia Cível, Criminal, Trabalhista e Previdenciária. Atendimento ágil, transparente e humanizado em Recife (PE) e online em todo o Brasil.
           </p>
@@ -69,7 +86,7 @@ export function HeroSection() {
           {/* Primary & Secondary CTAs */}
           <div
             style={heroDelay(300)}
-            className="hero-enter mt-9 flex flex-col gap-3.5 sm:flex-row sm:items-center sm:gap-4"
+            className="hero-enter mt-7 sm:mt-9 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4"
           >
             <a
               href={whatsappHref}
