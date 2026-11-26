@@ -33,7 +33,7 @@ export function Footer({ onNavigate }: FooterProps) {
             </div>
 
             <p className="mt-5 max-w-[42ch] text-[15px] leading-[1.65] text-[#CBD5E1]">
-              Advocacia Cível, Criminal, Trabalhista, Previdenciária e Familiar com sede no Recife (PE) e atuação digital em todo o Brasil.
+              Advocacia Cível, Criminal, Trabalhista e Previdenciária com sede no Recife (PE) e atuação digital em todo o Brasil.
             </p>
 
             <div className="mt-5 flex items-start gap-2.5 text-[14px] text-[#CBD5E1]">

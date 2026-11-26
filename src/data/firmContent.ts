@@ -147,10 +147,10 @@ export const PRACTICE_AREAS: PracticeArea[] = [
     description:
       'Atuação discreta e técnica em pensão alimentícia, guarda, divórcio, curatela, retificação de registro civil, inventário e partilha de bens.',
     highlights: 'Pensão · Guarda · Divórcio · Inventário · Curatela',
-    image: '/assets/aistudio/WhatsApp_Image_2026-11-25_at_14.39.19_2a5dac8c.jpeg',
+    image: '/assets/aistudio/image_a2031859.png',
     imageAlt:
-      'Dra. Fabíola Lins em seu escritório apresentando orientações jurídicas de Direito de Família e Sucessões',
-    imagePosition: 'object-[50%_38%]',
+      'Dra. Fabíola Lins em reunião de atendimento e mediação em Direito de Família e Sucessões no escritório',
+    imagePosition: 'object-[50%_46%]',
     icon: 'users',
   },
   {
