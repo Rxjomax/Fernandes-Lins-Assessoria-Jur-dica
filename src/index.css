@@ -26,6 +26,7 @@
     color: var(--color-ink-900);
     background-color: var(--color-cream-50);
     scroll-padding-top: 5rem;
+    scroll-behavior: smooth;
     overflow-x: clip;
   }
 
@@ -43,6 +44,7 @@
   text-wrap: balance;
 }
 
+/* --- Subtle WhatsApp Pulse Halo --- */
 @keyframes subtleHalo {
   0% {
     transform: scale(1);
@@ -62,22 +64,11 @@
   animation: subtleHalo 2.8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
 }
 
-.reveal-block {
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity 550ms cubic-bezier(0.16, 1, 0.3, 1),
-    transform 550ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.reveal-block[data-visible="true"] {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@keyframes newsFrameEnter {
+/* --- Choreographed Hero Entrance & Slow Architectural Backdrop Drift --- */
+@keyframes heroRise {
   from {
     opacity: 0;
-    transform: translateY(6px);
+    transform: translateY(18px);
   }
   to {
     opacity: 1;
@@ -85,10 +76,174 @@
   }
 }
 
-.news-frame-enter {
-  animation: newsFrameEnter 360ms cubic-bezier(0.16, 1, 0.3, 1) both;
+@keyframes heroLineGrow {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
 }
 
+@keyframes heroKenBurns {
+  from {
+    transform: scale(1.07);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.hero-backdrop-drift {
+  animation: heroKenBurns 14s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform;
+}
+
+.hero-line-draw {
+  transform-origin: left center;
+  animation: heroLineGrow 650ms cubic-bezier(0.22, 1, 0.36, 1) 80ms both;
+}
+
+.hero-enter {
+  animation: heroRise 700ms cubic-bezier(0.22, 1, 0.36, 1) var(--hero-delay, 0ms) both;
+}
+
+/* --- Editorial Scroll Reveals (GPU-composited) --- */
+.reveal-block {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 620ms cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms),
+    transform 620ms cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms);
+}
+
+.reveal-block[data-variant="fade"] {
+  transform: none;
+}
+
+.reveal-block[data-variant="image"] {
+  transform: translateY(14px) scale(0.985);
+}
+
+.reveal-block[data-visible="true"] {
+  opacity: 1;
+  transform: none;
+}
+
+/* Expanding architectural rule inside visible reveal blocks */
+.reveal-rule {
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 760ms cubic-bezier(0.22, 1, 0.36, 1) var(--rule-delay, 120ms);
+}
+
+.reveal-block[data-visible="true"] .reveal-rule {
+  transform: scaleX(1);
+}
+
+/* --- Refined Brass Sheen Sweep on Primary Gold CTAs --- */
+.btn-gold-sheen {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.btn-gold-sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    115deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.28) 50%,
+    transparent 80%
+  );
+  transform: translateX(-130%);
+  transition: transform 680ms cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.btn-gold-sheen:hover::after,
+.btn-gold-sheen:focus-visible::after {
+  transform: translateX(130%);
+}
+
+/* --- Editorial Nav Link Underline Glide --- */
+.nav-link-glide {
+  position: relative;
+}
+
+.nav-link-glide::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1.5px;
+  background-color: #C5A059;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav-link-glide:hover::after,
+.nav-link-glide:focus-visible::after,
+.nav-link-glide[data-active="true"]::after {
+  transform: scaleX(1);
+}
+
+/* --- Smooth FAQ Accordion Grid Transition --- */
+.accordion-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 320ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 260ms ease;
+}
+
+.accordion-content[data-open="true"] {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.accordion-inner {
+  overflow: hidden;
+}
+
+/* --- Tab & Live News Frame Entrance --- */
+@keyframes newsFrameEnter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes tabFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.news-frame-enter {
+  animation: newsFrameEnter 380ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.tab-fade-enter {
+  animation: tabFadeIn 320ms ease-out both;
+}
+
+/* --- Reduced Motion Compliance --- */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -99,13 +254,31 @@
     opacity: 0;
   }
 
-  .reveal-block {
+  .hero-backdrop-drift,
+  .hero-line-draw,
+  .hero-enter,
+  .news-frame-enter,
+  .tab-fade-enter {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .reveal-block,
+  .reveal-block[data-variant="image"] {
     opacity: 1;
     transform: none;
     transition: none;
   }
 
-  .news-frame-enter {
-    animation: none;
+  .reveal-rule {
+    transform: scaleX(1);
+    transition: none;
+  }
+
+  .btn-gold-sheen::after,
+  .nav-link-glide::after,
+  .accordion-content {
+    transition: none;
   }
 }

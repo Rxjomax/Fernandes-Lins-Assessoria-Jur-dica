@@ -420,10 +420,14 @@ export function ContactSection() {
                   <div className="pt-2">
                     <button
                       type="submit"
-                      className="inline-flex min-h-[52px] w-full items-center justify-center gap-2.5 bg-[#C5A059] px-7 py-3 text-[16px] font-semibold text-[#0B192C] transition-colors duration-200 hover:bg-[#B08D48] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B192C] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F3F1ED]"
+                      className="group btn-gold-sheen inline-flex min-h-[52px] w-full items-center justify-center gap-2.5 bg-[#C5A059] px-7 py-3 text-[16px] font-semibold text-[#0B192C] transition-colors duration-200 hover:bg-[#B08D48] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B192C] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F3F1ED]"
                     >
                       <span>Preparar Mensagem para WhatsApp</span>
-                      <ArrowRight className="h-4 w-4 shrink-0" strokeWidth={2} aria-hidden="true" />
+                      <ArrowRight
+                        className="h-4 w-4 shrink-0 transition-transform duration-200 group-hover:translate-x-1"
+                        strokeWidth={2}
+                        aria-hidden="true"
+                      />
                     </button>
                     <p className="mt-3 text-center text-[13px] text-[#475569]">
                       Suas informações são protegidas pelo sigilo profissional previsto no Estatuto da Advocacia.

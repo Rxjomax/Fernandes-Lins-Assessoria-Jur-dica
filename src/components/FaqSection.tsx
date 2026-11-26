@@ -42,14 +42,14 @@ export function FaqSection() {
                         aria-expanded={isOpen}
                         aria-controls={panelId}
                         onClick={() => toggleItem(item.id)}
-                        className="flex min-h-[60px] w-full items-center justify-between gap-4 py-5 text-left text-[17px] font-medium leading-[1.4] text-[#1E293B] transition-colors duration-200 hover:text-[#87682A] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#87682A] focus-visible:ring-inset sm:text-[18px]"
+                        className="group flex min-h-[60px] w-full items-center justify-between gap-4 py-5 text-left text-[17px] font-medium leading-[1.4] text-[#1E293B] transition-colors duration-200 hover:text-[#87682A] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#87682A] focus-visible:ring-inset sm:text-[18px]"
                       >
                         <span className="font-serif text-[19px] sm:text-[21px]">
                           {item.question}
                         </span>
                         <ChevronDown
-                          className={`h-5 w-5 shrink-0 text-[#87682A] transition-transform duration-200 ${
-                            isOpen ? 'rotate-180' : 'rotate-0'
+                          className={`h-5 w-5 shrink-0 text-[#87682A] transition-transform duration-300 ease-out ${
+                            isOpen ? 'rotate-180' : 'rotate-0 group-hover:translate-y-0.5'
                           }`}
                           strokeWidth={1.75}
                           aria-hidden="true"
@@ -61,12 +61,17 @@ export function FaqSection() {
                       id={panelId}
                       role="region"
                       aria-labelledby={buttonId}
-                      hidden={!isOpen}
-                      className="pb-6 pr-2 sm:pr-8"
+                      aria-hidden={!isOpen}
+                      data-open={isOpen ? 'true' : 'false'}
+                      className="accordion-content"
                     >
-                      <p className="max-w-[65ch] text-[16px] leading-[1.7] text-[#475569]">
-                        {item.answer}
-                      </p>
+                      <div className="accordion-inner">
+                        <div className="pb-6 pr-2 sm:pr-8">
+                          <p className="max-w-[65ch] text-[16px] leading-[1.7] text-[#475569]">
+                            {item.answer}
+                          </p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 );

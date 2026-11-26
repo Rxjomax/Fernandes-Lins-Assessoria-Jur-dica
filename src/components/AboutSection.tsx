@@ -15,16 +15,16 @@ export function AboutSection() {
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-14">
           {/* Real editorial documentary photos of the partners and courtroom practice */}
-          <Reveal className="lg:col-span-5">
-            <figure>
-              <div className="relative aspect-[4/5] w-full overflow-hidden border border-[#DED9CE] bg-[#0B192C]">
+          <Reveal variant="image" className="lg:col-span-5">
+            <figure className="group">
+              <div className="relative aspect-[4/5] w-full overflow-hidden border border-[#DED9CE] bg-[#0B192C] transition-colors duration-300 group-hover:border-[#C5A059]/70">
                 {!failedImages[FIRM_INFO.partnersMainPhoto] ? (
                   <img
                     src={FIRM_INFO.partnersMainPhoto}
                     alt="Dr. Marciel Fernandes e Dra. Fabíola Lins, sócios administradores da Fernandes & Lins Assessoria Jurídica, em seu escritório"
                     referrerPolicy="no-referrer"
                     onError={() => markFailed(FIRM_INFO.partnersMainPhoto)}
-                    className="h-full w-full object-cover object-[50%_30%]"
+                    className="h-full w-full object-cover object-[50%_30%] transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                   />
                 ) : (
                   <div className="flex h-full w-full flex-col justify-end p-8 text-[#F1F5F9]">
@@ -42,15 +42,15 @@ export function AboutSection() {
             {/* Documentary 3-photo strip from Instagram practice */}
             <div className="mt-4 grid grid-cols-3 gap-3">
               {FIRM_INFO.galleryPhotos.map((photo) => (
-                <figure key={photo.src} className="flex flex-col">
-                  <div className="aspect-[4/5] w-full overflow-hidden border border-[#DED9CE] bg-[#0B192C]">
+                <figure key={photo.src} className="group flex flex-col">
+                  <div className="aspect-[4/5] w-full overflow-hidden border border-[#DED9CE] bg-[#0B192C] transition-colors duration-300 group-hover:border-[#C5A059]/70">
                     {!failedImages[photo.src] ? (
                       <img
                         src={photo.src}
                         alt={photo.alt}
                         referrerPolicy="no-referrer"
                         onError={() => markFailed(photo.src)}
-                        className="h-full w-full object-cover object-top"
+                        className="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.06]"
                       />
                     ) : (
                       <div className="flex h-full w-full items-end p-2 text-[11px] text-[#CBD5E1]">
@@ -58,7 +58,7 @@ export function AboutSection() {
                       </div>
                     )}
                   </div>
-                  <figcaption className="mt-1.5 text-[12px] leading-snug text-[#475569]">
+                  <figcaption className="mt-1.5 text-[12px] leading-snug text-[#475569] transition-colors duration-200 group-hover:text-[#1E293B]">
                     {photo.caption}
                   </figcaption>
                 </figure>
@@ -67,7 +67,7 @@ export function AboutSection() {
           </Reveal>
 
           {/* Institutional narrative & 3 pillars */}
-          <Reveal className="lg:col-span-7">
+          <Reveal delay={100} className="lg:col-span-7">
             <p className="text-xs font-semibold tracking-[0.16em] uppercase text-[#87682A]">
               Sobre o Escritório · {FIRM_INFO.since}
             </p>
@@ -90,7 +90,10 @@ export function AboutSection() {
             {/* Official Equipe Técnica credentials */}
             <div className="mt-6 grid grid-cols-1 gap-px border border-[#DED9CE] bg-[#DED9CE] sm:grid-cols-2">
               {FIRM_INFO.partnersOab.map((member) => (
-                <div key={member.oab} className="bg-[#F8F7F4] px-5 py-4">
+                <div
+                  key={member.oab}
+                  className="bg-[#F8F7F4] px-5 py-4 transition-colors duration-200 hover:bg-[#FCFBF9]"
+                >
                   <p className="text-[11px] font-semibold tracking-[0.14em] uppercase text-[#64748B]">
                     {member.group}
                   </p>
@@ -124,13 +127,13 @@ export function AboutSection() {
               {FIRM_PILLARS.map((pillar) => (
                 <div
                   key={pillar.number}
-                  className="grid grid-cols-1 gap-2 py-6 sm:grid-cols-12 sm:gap-6"
+                  className="group grid grid-cols-1 gap-2 py-6 transition-all duration-200 hover:pl-2 sm:grid-cols-12 sm:gap-6"
                 >
                   <div className="flex items-baseline gap-3 sm:col-span-5">
                     <span className="font-serif text-sm font-medium text-[#87682A] tabular-nums">
                       {pillar.number}
                     </span>
-                    <h3 className="font-serif text-[20px] font-medium leading-[1.25] text-[#1E293B]">
+                    <h3 className="font-serif text-[20px] font-medium leading-[1.25] text-[#1E293B] transition-colors duration-200 group-hover:text-[#0B192C]">
                       {pillar.title}
                     </h3>
                   </div>

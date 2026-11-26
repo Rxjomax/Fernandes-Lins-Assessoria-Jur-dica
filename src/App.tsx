@@ -98,9 +98,11 @@ export default function App() {
 
       <main id="conteudo-principal">
         {activeTab === 'feed' ? (
-          <LegalBriefingTab onBackToHome={() => handleNavigate('home', '#inicio')} />
+          <div key="tab-feed" className="tab-fade-enter">
+            <LegalBriefingTab onBackToHome={() => handleNavigate('home', '#inicio')} />
+          </div>
         ) : (
-          <div className="xl:grid xl:grid-cols-[minmax(0,1fr)_340px]">
+          <div key="tab-home" className="tab-fade-enter xl:grid xl:grid-cols-[minmax(0,1fr)_340px]">
             <div className="min-w-0 xl:col-start-1 xl:row-start-1">
               <HeroSection />
             </div>
